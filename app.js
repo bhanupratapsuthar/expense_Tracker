@@ -169,9 +169,9 @@ app.post('/:id/log/new',
     })
 )
 
-app.all('*', wrapAsync((req, res, next) => {
+app.all('{*splat}', (req, res, next) => {
     next(new ExpressError(404, 'Page not Found!'))
-}))
+})
 
 app.use((err, req, res, next) => {
     let {statusCode=500, message="Something Went Wrong!"} = err;
