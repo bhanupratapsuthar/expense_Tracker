@@ -1,0 +1,48 @@
+<% layout('layouts/boilerPlate') %>
+<body>
+    <div>
+        <h4>
+            <i>
+                <%= show.name.toUpperCase() %>
+            </i>
+        </h4>
+        <p><%= show.email %></p>
+        <p><%= show.contact %></p>
+        <p>
+            <%= show.address %>
+            <br>
+            <%= show.state %>
+            &nbsp;
+            <%= show.country %>
+            <br>
+            <%= show.pin_code %>
+        </p>
+    </div>
+
+    <hr>
+    <div class="d-flex justify-content-between p-3">
+        <h3 >Transaction Log:</h3>
+        <form class="" method="get" action="/home/<%= show._id %>/addTransaction">
+            <button class="btn btn-primary">Add New Transaction</button>
+        </form>
+    </div>
+    <div>
+        <% for(let log of show.logs) { %>
+            <div 
+                class="mt-4 mb-3 d-flex p-3 pt-3 pb-5 
+                border border-secondary-subtle 
+                rounded-4 justify-content-between shadow"
+                >
+                    <p><b><%= log.description %></b></p>
+                        <% if(log.paymentType === 'Received') { %>
+                            <p class="text-success"><b>+<%= log.amount %></b> </p>
+                        <% } else{ %>
+                            <p class="text-danger"><b>-<%= log.amount %></b></p>
+                        <% } %> 
+                    <p><%= log.paymentType %></p>
+                    <p><%= log.paymentDate.toLocaleTimeString() %></p>
+                    <p><%= log.paymentDate.toLocaleDateString() %></p>
+            </div>
+        <% } %>
+    </div>
+</body>

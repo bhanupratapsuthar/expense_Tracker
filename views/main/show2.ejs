@@ -1,0 +1,45 @@
+<% layout('layouts/boilerPlate') %>
+<body>
+    <div class="container mt-5">
+        <div class="card p-4">
+            <h4 class="card-title text-center">
+                <i>
+                    <%= show.name.toUpperCase() %>
+                </i>
+            </h4>
+            <p class="card-text"><strong>Email:</strong> <%= show.email %></p>
+            <p class="card-text"><strong>Contact:</strong> <%= show.contact %></p>
+            <p class="card-text">
+                <strong>Address:</strong> <%= show.address %><br>
+                <strong>State:</strong> <%= show.state %>&nbsp;
+                <strong>Country:</strong> <%= show.country %><br>
+                <strong>Pin Code:</strong> <%= show.pin_code %>
+            </p>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3>Transaction Log:</h3>
+            <form method="get" action="/home/<%= show._id %>/log/new">
+                <button class="btn btn-primary">Add New Transaction</button>
+            </form>
+        </div>
+
+        <div>
+            <% for(let log of show.logs) { %>
+                <div class="mt-4 mb-3 d-flex p-3 border border-secondary rounded shadow-sm justify-content-between">
+                    <p class="mb-0"><b><%= log.description %></b></p>
+                    <% if(log.paymentType === 'Received') { %>
+                        <p class="text-success mb-0"><b>+<%= log.amount %></b></p>
+                    <% } else { %>
+                        <p class="text-danger mb-0"><b>-<%= log.amount %></b></p>
+                    <% } %> 
+                    <p class="mb-0"><strong>Type:</strong> <%= log.paymentType %></p>
+                    <p class="mb-0"><strong>Date:</strong> <%= log.paymentDate.toLocaleDateString() %></p>
+                    <p class="mb-0"><strong>Time:</strong> <%= log.paymentDate.toLocaleTimeString() %></p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>

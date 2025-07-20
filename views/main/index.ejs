@@ -1,0 +1,16 @@
+<% layout('/layouts/boilerPlate') %>
+<body>
+    <h1>Hi <%= user.firstName %></h1>
+    <% for(let beneficiary of user.beneficiaries) {%>
+            <p>
+                <a href="/home/<%= beneficiary._id %>">
+                    <%= beneficiary.name %> 
+                    <form method="post" action="/home/<%= beneficiary._id %>/delete?_method=DELETE">
+                        <button class="btn btn-secondary">Delete</button>
+                    </form>
+                </a>
+            </p>
+            
+    <% } %>
+            
+</body>

@@ -1,0 +1,113 @@
+
+
+<!-- Layout 2 -->
+
+<% layout('layouts/boilerPlate') %>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Add New Beneficiary:</h2>
+        <form method="post" action="/home/beneficiary/new" novalidate class="needs-validation">
+            <div class="row">
+                <!-- Name -->
+                <div class="col-md-6 mb-3">
+                    <label for="name" class="form-label">Enter Name:</label>
+                    <input 
+                        type="text" 
+                        name="beneficiary[name]" 
+                        class="form-control" 
+                        placeholder="Enter Name:" 
+                        required
+                    >
+                </div>
+
+                <!-- Email -->
+                <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label">Enter Email:</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="beneficiary[email]" 
+                        class="form-control" 
+                        placeholder="xyz@gmail.com" 
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Mobile -->
+                <div class="col-md-6 mb-3">
+                    <label for="contact" class="form-label">Mobile No.:</label>
+                    <input 
+                        type="text" 
+                        id="contact" 
+                        name="beneficiary[contact]" 
+                        class="form-control" 
+                        placeholder="+91 9784578457" 
+                        required
+                    >
+                </div>
+
+                <!-- Address -->
+                <div class="col-md-6 mb-3">
+                    <label for="address" class="form-label">Address:</label>
+                    <input 
+                        type="text" 
+                        id="address" 
+                        name="beneficiary[address]" 
+                        class="form-control" 
+                        placeholder="Address" 
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- State -->
+                <div class="col-md-6 mb-3">
+                    <label for="state" class="form-label">State:</label>
+                    <input 
+                        type="text" 
+                        id="state" 
+                        name="beneficiary[state]" 
+                        class="form-control" 
+                        placeholder="State" 
+                        required
+                    >
+                </div>
+
+                <!-- Country -->
+                <div class="col-md-6 mb-3">
+                    <label for="country" class="form-label">Country:</label>
+                    <input 
+                        type="text" 
+                        id="country" 
+                        name="beneficiary[country]" 
+                        class="form-control" 
+                        placeholder="Country" 
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Pin Code -->
+                <div class="col-md-6 mb-3">
+                    <label for="pin_code" class="form-label">Pin Code:</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="pin" 
+                        name="beneficiary[pin_code]" 
+                        placeholder="Pin Code:" 
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
