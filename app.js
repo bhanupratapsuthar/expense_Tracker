@@ -169,7 +169,7 @@ app.post('/:id/log/new',
     })
 )
 
-app.all('{*splat}', wrapAsync((req, res, next) => {
+app.all('*', wrapAsync((req, res, next) => {
     next(new ExpressError(404, 'Page not Found!'))
 }))
 
